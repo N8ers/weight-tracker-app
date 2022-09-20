@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react"
-import App from "./App"
+import HomePage from "./HomePage"
 
 test("renders text", () => {
-  render(<App />)
-  const textElement = screen.getByText(/weight tracker app/i)
+  render(<HomePage />)
+  const textElement = screen.getByText(/i am the homepage/i)
   expect(textElement).toBeInTheDocument()
 })
