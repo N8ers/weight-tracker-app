@@ -3,7 +3,7 @@ import { Link, Route, Routes } from "react-router-dom"
 import HomePage from "./pages/home/HomePage"
 import AuthPage from "./pages/auth/AuthPage"
 
-function App() {
+export default function App() {
   return (
     <>
       <nav>
@@ -26,5 +26,3 @@ function App() {
     </>
   )
 }
-
-export default App
