@@ -6,7 +6,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [10, 12]
+        node: [14]
 
     steps:
       - name: Checkout
@@ -25,7 +25,6 @@ jobs:
   storybook_test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.state == 'success'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -36,6 +35,6 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Storybook tests
-        run: yarn test-storybook
+        run: npm run test-storybook
         env:
           TARGET_URL: "${{ github.event.deployment_status.target_url }}"
