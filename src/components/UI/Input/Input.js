@@ -1,11 +1,13 @@
 import PropTypes from "prop-types"
 
+import styles from "./Input.module.css"
+
 function Input(props) {
   const { label, placeholder, type } = props
   return (
     <div>
-      <label>{label}</label>
-      <input type={type} placeholder={placeholder} />
+      <label className={styles.label}>{label}</label>
+      <input className={styles.input} type={type} placeholder={placeholder} />
     </div>
   )
 }
