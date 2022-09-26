@@ -3,11 +3,22 @@ import PropTypes from "prop-types"
 import styles from "./Input.module.css"
 
 function Input(props) {
-  const { label, placeholder, type } = props
+  const { label, placeholder, type, value, updateValue } = props
+
+  const emitChange = (event) => {
+    updateValue(event.target.value)
+  }
+
   return (
     <div>
       <label className={styles.label}>{label}</label>
-      <input className={styles.input} type={type} placeholder={placeholder} />
+      <input
+        value={value}
+        className={styles.input}
+        type={type}
+        placeholder={placeholder}
+        onChange={emitChange}
+      />
     </div>
   )
 }
