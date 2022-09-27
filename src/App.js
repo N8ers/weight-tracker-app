@@ -9,10 +9,10 @@ import AuthPage from "./pages/auth/AuthPage"
 import NavBar from "./components/UI/NavBar/NavBar"
 
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <NavBar />
 
       <Routes>

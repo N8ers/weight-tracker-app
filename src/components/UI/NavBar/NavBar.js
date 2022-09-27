@@ -3,13 +3,21 @@ import { Link } from "react-router-dom"
 
 import AuthContext from "../../../context/auth-context"
 
+import Button from "../Button/Button"
+
 import styles from "./NavBar.module.css"
 
 export default function NavBar() {
-  const { authenticated, setAuthenticated } = useContext(AuthContext)
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
 
-  const handleLogin = () => setAuthenticated(true)
-  const handleLogout = () => setAuthenticated(false)
+  const handleLogin = (bool) => setIsLoggedIn(bool)
+
+  const logInButton = (
+    <Button onClick={() => handleLogin(false)} label="login" color="yellow" />
+  )
+  const logOutButton = (
+    <Button onClick={() => handleLogin(true)} label="logout" color="blue" />
+  )
 
   return (
     <div className={styles.wrapper}>
@@ -23,10 +31,8 @@ export default function NavBar() {
           Auth
         </Link>
 
-        {authenticated ? <div>logged in</div> : <div>logged out</div>}
-
-        <button onClick={handleLogin}>login</button>
-        <button onClick={handleLogout}>logout</button>
+        {isLoggedIn ? <div>Sign In</div> : <div>Sign Out</div>}
+        {isLoggedIn ? logInButton : logOutButton}
       </nav>
     </div>
   )
