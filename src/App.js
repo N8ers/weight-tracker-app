@@ -1,28 +1,31 @@
-import { Link, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
+
+import AuthContext from "./context/auth-context"
 
 import HomePage from "./pages/home/HomePage"
 import AuthPage from "./pages/auth/AuthPage"
 
+import NavBar from "./components/UI/NavBar/NavBar"
+
 export default function App() {
+  const fireThing = () => {
+    console.log("fire thing")
+  }
+
   return (
-    <>
-      <nav>
-        <h1>Weight Tracker App!</h1>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/auth">Auth</Link>
-          </li>
-        </ul>
-      </nav>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: false,
+        onPress: fireThing,
+      }}
+    >
+      <NavBar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="*" element={<AuthPage />} />
       </Routes>
-    </>
+    </AuthContext.Provider>
   )
 }
