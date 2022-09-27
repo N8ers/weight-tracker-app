@@ -22,17 +22,20 @@ export default function NavBar() {
   return (
     <div className={styles.wrapper}>
       <nav>
-        <h1>Weight Tracker</h1>
-
-        <Link className={styles.link} to="/">
-          Home
-        </Link>
-        <Link className={styles.link} to="/auth">
-          Auth
-        </Link>
-
-        {isLoggedIn ? <div>Sign In</div> : <div>Sign Out</div>}
-        {isLoggedIn ? logInButton : logOutButton}
+        <div className={styles.grid}>
+          <div className={styles.title}>Weight Tracker</div>
+          <div>
+            <Link className={styles.link} to="/">
+              Home
+            </Link>
+          </div>
+          <div>
+            <Link className={styles.link} to="/auth">
+              Auth
+            </Link>
+          </div>
+          <div>{isLoggedIn ? logInButton : logOutButton}</div>
+        </div>
       </nav>
     </div>
   )
