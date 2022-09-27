@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+
+import AuthContext from "../../context/auth-context"
 
 import { Button, Input, Card } from "../../components/UI"
 
 export default function AuthPage() {
   const [username, setUsername] = useState("hi!")
   const [password, setPassword] = useState("")
+
+  const ctx = useContext(AuthContext)
 
   return (
     <div>
