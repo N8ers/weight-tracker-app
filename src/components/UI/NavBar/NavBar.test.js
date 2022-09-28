@@ -1,15 +1,13 @@
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 
-import App from "./App"
+import NavBar from "./NavBar"
 
-test("renders text", () => {
+test("NavBar renders", () => {
   render(
     <MemoryRouter initialEntries={["/"]}>
-      <App />
+      <NavBar />
     </MemoryRouter>
   )
-
   expect(screen.getByText(/weight tracker/i)).toBeInTheDocument()
-  expect(screen.getByText(/i am the homepage/i)).toBeInTheDocument()
 })

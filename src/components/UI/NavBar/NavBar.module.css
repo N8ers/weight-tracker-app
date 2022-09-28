@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: 250px auto auto 2fr;
+}
+
+.grid > div:nth-of-type(4) {
+  display: grid;
+  justify-content: end;
+}
+
+.wrapper {
+  background-color: pink;
+}
+
+.title {
+  width: 250px;
+  padding: 10px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.link {
+  margin: 10px;
+}
+
