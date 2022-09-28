@@ -1,8 +1,14 @@
-// import { render, screen } from "@testing-library/react"
-// import NavBar from "./NavBar"
+import { render, screen } from "@testing-library/react"
+import { MemoryRouter } from "react-router-dom"
+
+import NavBar from "./NavBar"
 
 test("NavBar renders", () => {
-  // render(<NavBar />)
-  // const textElement = screen.getByText(/i am the homepage/i)
-  // expect(textElement).toBeInTheDocument()
+  render(
+    <MemoryRouter initialEntries={["/"]}>
+      <NavBar />
+    </MemoryRouter>
+  )
+  const textElement = screen.getByText(/weight tracker/i)
+  expect(textElement).toBeInTheDocument()
 })
