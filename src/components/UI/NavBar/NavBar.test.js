@@ -9,6 +9,5 @@ test("NavBar renders", () => {
       <NavBar />
     </MemoryRouter>
   )
-  const textElement = screen.getByText(/weight tracker/i)
-  expect(textElement).toBeInTheDocument()
+  expect(screen.getByText(/weight tracker/i)).toBeInTheDocument()
 })

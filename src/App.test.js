@@ -9,9 +9,7 @@ test("renders text", () => {
       <App />
     </MemoryRouter>
   )
-  const navElement = screen.getByText(/weight tracker/i)
-  expect(navElement).toBeInTheDocument()
 
-  const bodyElement = screen.getByText(/i am the homepage/i)
-  expect(bodyElement).toBeInTheDocument()
+  expect(screen.getByText(/weight tracker/i)).toBeInTheDocument()
+  expect(screen.getByText(/i am the homepage/i)).toBeInTheDocument()
 })
