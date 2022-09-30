@@ -1,6 +1,12 @@
+import PropTypes from "prop-types"
+
+import WeightTableRow from "../WeightTableRow/WeightTableRow"
+
 import styles from "./WeightTable.module.css"
 
-export default function WeightTable() {
+function WeightTable(props) {
+  const { tableData } = props
+
   return (
     <div>
       <div>I am the WeightTable</div>
@@ -12,8 +18,25 @@ export default function WeightTable() {
             <th>user_id</th>
             <th>weight</th>
           </tr>
+
+          {tableData?.length &&
+            tableData.map((data) => (
+              <WeightTableRow
+                key={data.id}
+                id={data.id}
+                date={data.date}
+                userId={data.user_id}
+                weight={data.weight}
+              />
+            ))}
         </tbody>
       </table>
     </div>
   )
 }
+
+WeightTable.propTypes = {
+  weightData: PropTypes.array,
+}
+
+export default WeightTable

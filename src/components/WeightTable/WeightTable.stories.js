@@ -5,7 +5,9 @@ export default {
   component: WeightTable,
 }
 
-const Template = (args) => <WeightTable />
+const Template = (args) => <WeightTable {...args} />
 
 export const Basic = Template.bind({})
-Basic.args = {}
+Basic.args = {
+  tableData: [],
+}
