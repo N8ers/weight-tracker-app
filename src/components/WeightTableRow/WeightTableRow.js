@@ -6,14 +6,12 @@ function WeightTableRow(props) {
   const { date, id, userId, weight } = props
 
   return (
-    <>
-      <tr className={styles.row}>
-        <td>{date}</td>
-        <td>{id}</td>
-        <td>{userId}</td>
-        <td>{weight}</td>
-      </tr>
-    </>
+    <tr className={styles.row}>
+      <td>{date}</td>
+      <td>{id}</td>
+      <td>{userId}</td>
+      <td>{weight}</td>
+    </tr>
   )
 }
 
