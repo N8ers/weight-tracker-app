@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 
 import WeightTableRow from "../WeightTableRow/WeightTableRow"
+import AddWeight from "../AddWeight/AddWeight"
 
 import styles from "./WeightTable.module.css"
 
@@ -31,6 +32,8 @@ function WeightTable(props) {
             ))}
         </tbody>
       </table>
+
+      <AddWeight />
     </div>
   )
 }
