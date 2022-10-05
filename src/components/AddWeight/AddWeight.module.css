@@ -1,0 +1,7 @@
+.form > div {
+  display: inline-block;
+}
+
+.form > button {
+  margin-left: 5px;
+}
