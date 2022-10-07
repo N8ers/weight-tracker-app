@@ -12,24 +12,25 @@ function WeightTable(props) {
     <div>
       <div>I am the WeightTable</div>
       <table className={styles.table}>
-        <tbody>
+        <thead>
           <tr>
             <th>date</th>
             <th>id</th>
             <th>user_id</th>
             <th>weight</th>
           </tr>
+        </thead>
 
-          {tableData?.length &&
-            tableData.map((data) => (
-              <WeightTableRow
-                key={data.id}
-                id={data.id}
-                date={data.date}
-                userId={data.user_id}
-                weight={data.weight}
-              />
-            ))}
+        <tbody>
+          {tableData.map((data) => (
+            <WeightTableRow
+              key={data.id}
+              id={data.id}
+              date={data.date}
+              userId={data.user_id}
+              weight={data.weight}
+            />
+          ))}
         </tbody>
       </table>
 
