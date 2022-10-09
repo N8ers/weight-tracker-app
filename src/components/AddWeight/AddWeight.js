@@ -9,7 +9,28 @@ export default function AddWeight() {
 
   const submitNewWeight = (event) => {
     event.preventDefault()
-    alert(newWeight)
+
+    /**
+     * the userId is hardcoded right now - update later
+     */
+    const fullISO = new Date().toISOString()
+    const date = fullISO.split("T")[0]
+    const payload = {
+      date: date,
+      user_id: 6,
+      weight: newWeight,
+    }
+
+    fetch("http://localhost:5000/weights", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("data ", data))
+      .catch((error) => console.log("error ", error))
   }
 
   return (

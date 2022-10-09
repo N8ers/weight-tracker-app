@@ -6,6 +6,9 @@ export default function HomePage() {
   const [tableData, setTableData] = useState([])
 
   const fetchData = () => {
+    /**
+     * the userId is hardcoded right now - update later
+     */
     fetch("http://localhost:5000/weights/6")
       .then((response) => response.json())
       .then((data) => setTableData(data))
