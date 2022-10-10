@@ -13,10 +13,10 @@ export default function NavBar() {
   const handleLogin = (bool) => setIsLoggedIn(bool)
 
   const logInButton = (
-    <Button onClick={() => handleLogin(false)} label="login" color="yellow" />
+    <Button onClick={() => handleLogin(true)} label="login" color="green" />
   )
   const logOutButton = (
-    <Button onClick={() => handleLogin(true)} label="logout" color="blue" />
+    <Button onClick={() => handleLogin(false)} label="logout" color="blue" />
   )
 
   return (
@@ -24,17 +24,22 @@ export default function NavBar() {
       <nav>
         <div className={styles.grid}>
           <div className={styles.title}>Weight Tracker</div>
-          <div>
-            <Link className={styles.link} to="/">
-              Home
-            </Link>
-          </div>
-          <div>
-            <Link className={styles.link} to="/auth">
-              Auth
-            </Link>
-          </div>
-          <div>{isLoggedIn ? logInButton : logOutButton}</div>
+          {isLoggedIn && (
+            <>
+              <div>
+                <Link className={styles.link} to="/">
+                  Home
+                </Link>
+              </div>
+              <div>
+                <Link className={styles.link} to="/auth">
+                  Auth
+                </Link>
+              </div>
+            </>
+          )}
+
+          <div>{isLoggedIn ? logOutButton : logInButton}</div>
         </div>
       </nav>
     </div>
