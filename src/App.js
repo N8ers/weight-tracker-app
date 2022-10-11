@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom"
 
 import AuthContext from "./context/auth-context"
 
+import PrivateRoutes from "./utils/PrivateRoutes"
+
 import HomePage from "./pages/home/HomePage"
 import AuthPage from "./pages/auth/AuthPage"
 
@@ -16,7 +18,13 @@ export default function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/**
+          Place any routes that need to be protected in the <Route/> element below
+        */}
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<HomePage />} />
+        </Route>
+
         <Route path="/auth" element={<AuthPage />} />
         <Route path="*" element={<AuthPage />} />
       </Routes>
