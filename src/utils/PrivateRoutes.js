@@ -1,13 +1,12 @@
 import { Outlet, Navigate } from "react-router-dom"
+import { useContext } from "react"
 
-// video explainer
-// https://www.youtube.com/watch?v=2k8NleFjG7I
+import AuthContext from "../context/auth-context"
 
 const PrivateRoutes = () => {
-  // replace "auth" with context api check
-  let auth = false
+  const { isLoggedIn } = useContext(AuthContext)
 
-  return auth ? <Outlet /> : <Navigate to="/auth" />
+  return isLoggedIn ? <Outlet /> : <Navigate to="/auth" />
 }
 
 export default PrivateRoutes
