@@ -1,10 +1,22 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+
+import AuthContext from "../../context/auth-context"
 
 import { Button, Input, Card } from "../../components/UI"
 
 export default function AuthPage() {
   const [username, setUsername] = useState("hi!")
   const [password, setPassword] = useState("")
+
+  const { setIsLoggedIn } = useContext(AuthContext)
+
+  const attemptLogin = () => {
+    if (username === "n8" && password === "123") {
+      setIsLoggedIn(true)
+    } else {
+      alert("NO ENTRY: auth failed.")
+    }
+  }
 
   return (
     <div>
@@ -25,7 +37,7 @@ export default function AuthPage() {
           value={password}
           updateValue={(newValue) => setPassword(newValue)}
         />
-        <Button label="login" color="blue" />
+        <Button label="login" color="blue" onClick={attemptLogin} />
       </Card>
     </div>
   )

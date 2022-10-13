@@ -12,9 +12,6 @@ export default function NavBar() {
 
   const handleLogin = (bool) => setIsLoggedIn(bool)
 
-  const logInButton = (
-    <Button onClick={() => handleLogin(true)} label="login" color="green" />
-  )
   const logOutButton = (
     <Button onClick={() => handleLogin(false)} label="logout" color="blue" />
   )
@@ -39,7 +36,7 @@ export default function NavBar() {
             </>
           )}
 
-          <div>{isLoggedIn ? logOutButton : logInButton}</div>
+          <div>{isLoggedIn && logOutButton}</div>
         </div>
       </nav>
     </div>
