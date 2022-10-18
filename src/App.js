@@ -12,9 +12,10 @@ import NavBar from "./components/UI/NavBar/NavBar"
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState({})
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, user, setUser }}>
       <NavBar />
 
       <Routes>

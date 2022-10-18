@@ -1,19 +1,32 @@
 import { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/auth-context"
 
 import { Button, Input, Card } from "../../components/UI"
 
 export default function AuthPage() {
-  const [username, setUsername] = useState("hi!")
-  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("tsuki_cat")
+  const [password, setPassword] = useState("meow1")
+  const navigate = useNavigate()
 
-  const { setIsLoggedIn } = useContext(AuthContext)
+  const { setIsLoggedIn, setUser } = useContext(AuthContext)
 
-  const attemptLogin = () => {
-    if (username === "n8" && password === "123") {
+  const attemptLogin = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/auth", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      const responseBody = await response.json()
       setIsLoggedIn(true)
-    } else {
+      setUser(responseBody)
+      navigate("/")
+    } catch (error) {
+      console.log("error: ", error)
       alert("NO ENTRY: auth failed.")
     }
   }
