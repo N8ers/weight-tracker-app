@@ -9,15 +9,26 @@ import { Button } from "../../components/UI"
 export default function HomePage() {
   const [tableData, setTableData] = useState([])
   const [isCSVUploaded, setIsCSVUploaded] = useState(false)
+  const [csvFile, setCSVFile] = useState(null)
   const { user } = useContext(AuthContext)
 
-  const handleFileUpload = () => {
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0]
     setIsCSVUploaded(true)
+    setCSVFile(file)
   }
 
   const uploadFile = () => {
-    // An endpoint is needed
-    console.log("GO UPLOAD!")
+    fetch("http://localhost:5000/csv", {
+      method: "POST",
+      body: JSON.stringify(csvFile),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("data ", data))
+      .catch((error) => console.log("error ", error))
   }
 
   const fetchData = () => {
